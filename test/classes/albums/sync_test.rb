@@ -7,6 +7,11 @@ class SyncTest < ActiveSupport::TestCase
     assert_not_empty Albums::Sync.call(42)
   end
 
+  test 'photos include appropriate keys' do
+    keys = %w[albumId id title url thumbnailUrl]
+    assert_equal keys.sort, Albums::Sync.call(42).first.keys.sort
+  end
+
   test 'returns empty array when input is nonexisting album id' do
     assert_empty Albums::Sync.call(-42)
   end
