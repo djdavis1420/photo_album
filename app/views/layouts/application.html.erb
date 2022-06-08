@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PhotoAlbum</title>
+    <title>Photo Album</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main id="main-content">
+      <div class="my-5 d-flex justify-content-center">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>
