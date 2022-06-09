@@ -12,8 +12,12 @@ class SyncTest < ActiveSupport::TestCase
     assert_equal keys.sort, Albums::Sync.call(42).first.keys.sort
   end
 
-  test 'returns empty array when input is nonexisting album id' do
-    assert_empty Albums::Sync.call(-42)
+  test 'raises argument error when input is a negative whole number' do
+    assert_raises(ArgumentError) { Albums::Sync.call('-42') }
+  end
+
+  test 'raises argument error when input includes decimal' do
+    assert_raises(ArgumentError) { Albums::Sync.call('42.42') }
   end
 
   test 'raises argument error when input is not an integer' do
