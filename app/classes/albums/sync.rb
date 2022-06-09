@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'net/http'
+require 'active_support/core_ext/object/try'
 
 module Albums
   module Sync
@@ -15,7 +17,9 @@ module Albums
     end
 
     def self.valid_id?(album_id)
-      album_id.try(:to_i).try(:is_a?, Integer)
+      Integer(album_id).positive?
+    rescue ArgumentError => _
+      return false
     end
   end
 end
