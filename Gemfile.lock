@@ -162,7 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   cssbundling-rails
-  foreman (~> 0.87.2)
+  foreman
   jsbundling-rails
   puma
   rails
