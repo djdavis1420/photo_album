@@ -15,3 +15,5 @@ end
 
 group :development do
 end
+
+gem "foreman", "~> 0.87.2"
