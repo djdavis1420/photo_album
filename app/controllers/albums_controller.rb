@@ -6,6 +6,8 @@ class AlbumsController < ApplicationController
   def sync
     response = Albums::Sync.call(params[:id])
 
-    render json: { photos: response }
+    render json: { photos: response }, status: 200
+  rescue StandardError => e
+    render json: { error: e.to_s.capitalize }, status: 400
   end
 end
