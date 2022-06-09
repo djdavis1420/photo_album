@@ -15,7 +15,7 @@ module Albums
     end
 
     def self.valid_id?(album_id)
-      album_id.is_a?(Integer)
+      album_id.try(:to_i).try(:is_a?, Integer)
     end
   end
 end
