@@ -4,6 +4,18 @@
   "engines": {
     "node": "^16.4.0"
   },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.jsx?$": [
+        "esbuild-jest-transform",
+        {
+          "target": "es2015"
+        }
+      ]
+    }
+  },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "axios": "^0.27.2",
@@ -19,5 +31,11 @@
   "scripts": {
     "build": "esbuild app/assets/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "esbuild-jest-transform": "^1.1.0",
+    "jest": "27.5"
   }
 }
