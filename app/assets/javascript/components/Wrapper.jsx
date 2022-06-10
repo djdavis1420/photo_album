@@ -1,5 +1,5 @@
 import React from 'react';
-import useStore, { Store } from '../shared/Store'
+import { Store } from '../shared/Store';
 
 import Form from './Form';
 import Album from './Album';

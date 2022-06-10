@@ -1,6 +1,6 @@
 import React from 'react';
 import useStore from '../shared/Store';
-import Photo from "./Photo";
+import Photo from './Photo';
 
 const Album = () => {
   const { state, dispatch } = useStore();
